@@ -1,0 +1,50 @@
+a{
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+}
+
+
+header{
+    background-color: skyblue;
+    box-shadow: 0 -10px 10px 10px black;
+}
+
+.fix-width-center{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+#nav-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#nav-list li a{
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+#nav-list li a:hover{
+    background-color: aquamarine;
+}
+
+
+.selected-item{
+    background-color: yellow;
+}
+
+
+.my-input{
+    width: 200px;
+    height: 30px;
+    border: solid 1px grey;
+    border-radius: 4px;
+    padding-left: 4px;
+    font-size: 18px;
+}

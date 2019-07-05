@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .reply-box{
+            text-align: right;
+            border-bottom: solid 1px grey;
+        }
+
+        #delete-btn{
+            border: none;
+            border-radius: 2px;
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    {{include "./header.html"}}
+    <main class="fix-width-center">
+        <h1>{{blog.title}}</h1>
+        <p>发布时间：{{blog.time}}</p>
+        <p>作者：{{blog.author.username}}</p>
+        <p>{{blog.content}}</p>
+        {{if user&&user.username==blog.author.username}}
+        <a id="delete-btn" href="/blog/delete?_id={{blog._id}}">删除帖子</a>
+        {{/if}}
+        <hr>
+        {{each blog.reply r}}
+        <div class="reply-box">
+            <p>回复作者：{{r.nickname}}</p>
+            <p>回复时间：{{r.time}}</p>
+            <p>{{r.content}}</p>
+        </div>
+        {{/each}}
+        <hr>
+        <span>写评论：</span>
+        <form action="/blog/reply" method="POST">
+            <input type="text" name="_id" value="{{blog._id}}" style="display: none">
+            {{if !user}}
+            <input type="text" placeholder="昵称" required name="nickname">
+            <br>
+            {{/if}}
+            <textarea name="content" required></textarea>
+            <br>
+            <button>提交</button>
+        </form>
+        
+
+    </main>
+</body>
+</html>

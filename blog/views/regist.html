@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/regist.css">
+</head>
+<body>
+    
+    {{include "./header.html"}}
+
+    <main class="fix-width-center">
+        <h1>新用户注册</h1>
+        <form action="/user/regist" method="POST">
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="username" required class="my-input"></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="psw" required id="psw" required class="my-input"></td>
+                </tr>
+                <tr>
+                    <td>确认密码</td>
+                    <td><input type="password" id="confirm" class="my-input"></td>
+                </tr>
+                <tr>
+                    <td>邮箱</td>
+                    <td><input type="email" name="email" required required class="my-input"></td>
+                </tr>
+            </table>
+            <button id="regist-btn">注册</button>
+        </form>
+    </main>
+</body>
+
+<script>
+    $("#regist-btn").on("click",function(e){
+        if($("#psw").val()!=$("#confirm").val()){
+            e.preventDefault();
+            alert("两次密码输入不一致");
+        }
+    });
+
+
+</script>
+
+</html>

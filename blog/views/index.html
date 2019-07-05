@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .blog-box{
+            border-bottom: solid 1px grey;
+        }
+
+        .blog-title a{
+            color: red;
+        }
+
+        .blog-tags{
+            display: inline-block;
+            padding: 4px 6px;
+            background-color: red;
+            color: white;
+            margin: 0 2px;
+            border-radius: 6px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    {{include "./header.html"}}
+
+    <main class="fix-width-center">
+        <h1>博客首页</h1>
+
+        {{each blogs b}}
+        <div class="blog-box">
+            <h3 class="blog-title">
+                <a href="/page/blog-detail?_id={{b._id}}">{{b.title}}</a>
+            </h3>
+            <p>
+                <span>作者：<a href="/page/blog-list?author={{b.author._id}}">{{b.author.username}}</a></span>|
+                <span>{{b.time}}</span>|
+                {{each b.tag t}}
+                <a href="/page/blog-list?tag={{t}}" class="blog-tags">{{t}}</a>
+                {{/each}}
+            </p>
+            <p>
+                <span>浏览次数：{{b.readCount}}</span>|
+                <span>回复：{{b.reply.length}}</span>
+            </p>
+        </div>
+        {{/each}}
+
+
+    </main>
+</body>
+</html>

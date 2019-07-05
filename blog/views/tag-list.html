@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .blog-tags{
+            display: inline-block;
+            padding: 4px 6px;
+            background-color: red;
+            color: white;
+            margin: 0 2px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    {{include "./header.html"}}
+
+    <main class="fix-width-center">
+        <h1>标签列表</h1>
+
+        {{each tags t}}
+        <a class="blog-tags" href="/page/blog-list?tag={{t}}">{{t}}</a>
+        {{/each}}
+    </main>
+</body>
+</html>

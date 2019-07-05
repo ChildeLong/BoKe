@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{include "./header.html"}}
+
+    <main class="fix-width-center">
+        <h1>帖子列表</h1>
+        {{if title}}
+        <p>和<mark>{{title}}</mark>有关的帖子</p>
+        {{/if}}
+        {{each blogs b}}
+        <p>
+            <a href="/page/blog-detail?_id={{b._id}}">{{b.title}}</a>
+        </p>
+        {{/each}}
+        
+    </main>
+    
+
+</body>
+</html>

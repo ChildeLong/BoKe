@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{include "./header.html"}}
+
+    <main class="fix-width-center">
+        {{if tip}}
+        <p style="color: green">{{tip}}</p>
+        {{/if}}
+        <h1>登录页面</h1>
+
+        <form action="/user/login" method="POST">
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="username" required class="my-input"></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="psw" required id="psw" required class="my-input"></td>
+                </tr>
+            </table>
+            <button id="regist-btn">登录</button>
+        </form>
+
+    </main>
+</body>
+</html>

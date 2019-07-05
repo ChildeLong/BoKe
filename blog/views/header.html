@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/header.css">
+<script src="/libs/jquery.js"></script>
+<header>
+    <nav id="nav-bar" class="fix-width-center">
+        <ul id="nav-list">
+            <li><a href="/" {{page=='home'?'class=selected-item':''}}>首页</a></li>
+            <li><a href="/page/tag-list" {{page=='tag'?'class=selected-item':''}}>标签</a></li>
+
+            {{if !user}} 
+            <li><a href="/page/login" {{page=='login'?'class=selected-item':''}}>登录</a></li>
+            <li><a href="/page/regist" {{page=='regist'?'class=selected-item':''}}>注册</a></li>
+            {{else}}
+            <li><a href="/page/send-blog" {{page=='send'?'class=selected-item':''}}>发帖</a></li>
+            <li><a href="/user/logout">退出登录</a></li>
+            <li style="padding: 10px 20px;">{{user.username}}</li>
+            {{/if}}
+            
+        </ul>
+    </nav>
+</header>
